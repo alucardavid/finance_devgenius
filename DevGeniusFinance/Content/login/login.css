@@ -1,0 +1,46 @@
+﻿
+body {
+    background-color: #313b3d;
+    width: 100%;
+    height: 100%;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.container-login {
+    margin: 2% auto auto auto;
+    height: 200px;
+}
+
+.logo {
+    max-height: 150px;
+    max-width: 200px;
+}
+
+/*.lbl-cpf {
+    color: #9e9e9e;
+    position: absolute;
+    top: 0;
+    font-size: 1rem;
+    cursor: text;
+    transition: transform .2s ease-out, color .2s ease-out, -webkit-transform .2s ease-out;
+    transform-origin: 0% 100%;
+    text-align: initial;
+    transform: translate(12px);
+}*/
+
+#cpf, #password {
+    background-color: #313b3d;
+    border: none;
+    border-bottom: 1px solid #9e9e9e;
+    border-radius: 0px;
+    color: white;
+}
+
+    #cpf:focus, #password:focus {
+        box-shadow: none;
+        border-bottom: 1px solid #4CAF50;
+        box-shadow: 0 1px 0 0 #4CAF50;
+    }
+
+
+
