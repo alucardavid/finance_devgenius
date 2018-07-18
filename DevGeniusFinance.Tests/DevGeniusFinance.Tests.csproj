@@ -63,6 +63,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="content\bootstrap-grid.css.map" />
+    <None Include="content\bootstrap-grid.min.css.map" />
+    <None Include="content\bootstrap-reboot.css.map" />
+    <None Include="content\bootstrap-reboot.min.css.map" />
+    <None Include="content\bootstrap.css.map" />
+    <None Include="content\bootstrap.min.css.map" />
     <None Include="content\materialize\fonts\roboto\Roboto-Bold.eot" />
     <None Include="content\materialize\fonts\roboto\Roboto-Bold.ttf" />
     <None Include="content\materialize\fonts\roboto\Roboto-Bold.woff" />
@@ -108,7 +114,25 @@
     <None Include="content\materialize\font\roboto\Roboto-Thin.woff" />
     <None Include="content\materialize\font\roboto\Roboto-Thin.woff2" />
     <None Include="packages.config" />
-    <None Include="Scripts\jquery-2.1.1.min.map" />
+    <None Include="Scripts\bootstrap.bundle.js.map" />
+    <None Include="Scripts\bootstrap.bundle.min.js.map" />
+    <None Include="Scripts\bootstrap.js.map" />
+    <None Include="Scripts\bootstrap.min.js.map" />
+    <None Include="Scripts\esm\popper-utils.js.map" />
+    <None Include="Scripts\esm\popper-utils.min.js.map" />
+    <None Include="Scripts\esm\popper.js.map" />
+    <None Include="Scripts\esm\popper.min.js.map" />
+    <None Include="Scripts\jquery-3.0.0.min.map" />
+    <None Include="Scripts\jquery-3.0.0.slim.min.map" />
+    <None Include="Scripts\popper-utils.js.map" />
+    <None Include="Scripts\popper-utils.min.js.map" />
+    <None Include="Scripts\popper.js.map" />
+    <None Include="Scripts\popper.min.js.map" />
+    <None Include="Scripts\README.md" />
+    <None Include="Scripts\umd\popper-utils.js.map" />
+    <None Include="Scripts\umd\popper-utils.min.js.map" />
+    <None Include="Scripts\umd\popper.js.map" />
+    <None Include="Scripts\umd\popper.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DevGeniusFinance\DevGeniusFinance.csproj">
@@ -117,15 +141,42 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="content\bootstrap-grid.css" />
+    <Content Include="content\bootstrap-grid.min.css" />
+    <Content Include="content\bootstrap-reboot.css" />
+    <Content Include="content\bootstrap-reboot.min.css" />
+    <Content Include="content\bootstrap.css" />
+    <Content Include="content\bootstrap.min.css" />
     <Content Include="content\materialize\css\materialize.css" />
     <Content Include="content\materialize\css\materialize.min.css" />
     <Content Include="content\materialize\font\material-design-icons\LICENSE.txt" />
     <Content Include="content\materialize\font\material-design-icons\Material-Design-Icons.svg" />
-    <Content Include="Scripts\jquery-2.1.1.intellisense.js" />
-    <Content Include="Scripts\jquery-2.1.1.js" />
-    <Content Include="Scripts\jquery-2.1.1.min.js" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\jquery-3.0.0-vsdoc.js" />
+    <Content Include="Scripts\jquery-3.0.0.js" />
+    <Content Include="Scripts\jquery-3.0.0.min.js" />
+    <Content Include="Scripts\jquery-3.0.0.slim.js" />
+    <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
     <Content Include="Scripts\materialize\materialize.js" />
     <Content Include="Scripts\materialize\materialize.min.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

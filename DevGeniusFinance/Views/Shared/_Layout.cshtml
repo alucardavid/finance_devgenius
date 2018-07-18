@@ -6,24 +6,39 @@
     <title>@ViewBag.Title - DevGenius Finance</title>
     <link href="~/Content/reset/reset.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <link href="~/Content/bootstrap.min.css?v=@DateTime.Now.Ticks" rel="stylesheet">
     <link href="~/Content/_layout/main.css?v=@DateTime.Now.Ticks" rel="stylesheet" />
     <script src="~/Scripts/modernizr/modernizr-2.8.3.js"></script>
     <link href="~/imgs/navicon.png" rel="icon" type="image/png" />
 </head>
 <body>
-    
-    <div class="container body-content">
-        @RenderBody()
+    <div class="body-content">
+        <menu>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="/">Home</a>
+                <div class="dropdown ml-md-auto">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Olá
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="/Account/LogOut">Logout</a>
+                    </div>
+                </div>
+            </nav>
+        </menu>
+        
+        <main>
+            @RenderBody()
+        </main>
+        
         <hr />
-
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+    <script src="~/Scripts/bootstrap.min.js?v=@DateTime.Now.Ticks"></script>
     <script src="~/Scripts/_layout/main.js?v=@DateTime.Now.Ticks"></script>
 </body>
 </html>
