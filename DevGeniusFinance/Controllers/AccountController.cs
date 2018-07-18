@@ -91,14 +91,15 @@ namespace DevGeniusFinance.Controllers
         [HttpPost]
         public ActionResult Login(Login login)
         {
-            string dbPassword = (from user in db.User where user.CPF == login.CPF select user.PassWord).FirstOrDefault();
+            var user = (from userTmp in db.User where userTmp.CPF == login.CPF select userTmp).FirstOrDefault();
 
 
             if (ModelState.IsValid)
             {
-                if (dbPassword == login.Password)
+                if (user.PassWord == login.Password)
                 {
                     FormsAuthentication.SetAuthCookie(login.CPF, false);
+                    Session["nome"] = user.Name;
                     return RedirectToAction("Index", "Home");
                 }
                 else
