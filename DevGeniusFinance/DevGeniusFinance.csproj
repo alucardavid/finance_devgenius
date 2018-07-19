@@ -216,6 +216,8 @@
     <Compile Include="Models\FormOfPayment.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\MonthlyExpense.cs" />
+    <Compile Include="Models\partials\BalanceMethods.cs" />
+    <Compile Include="Models\partials\UserMethods.cs" />
     <Compile Include="Models\Roles.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\VariableExpense.cs" />

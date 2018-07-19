@@ -3,3 +3,9 @@
     ViewBag.Title = "Home";
 }
 
+<p>@ViewBag.Id</p>
+
+@foreach (var item in ViewBag.users)
+{
+    <p>@item</p>
+}
