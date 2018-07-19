@@ -18,24 +18,25 @@
                 <a class="navbar-brand" href="/">Home</a>
                 <div class="dropdown ml-md-auto" id="menu-user">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Olá @Session["nome"].ToString().Split(' ')[0]
+                        Olá @Request.Cookies["name"].Value.ToString().Split(' ')[0]
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="/Account/LogOut">Logout</a>
                     </div>
                 </div>
-            </nav>
+            </nav>  
         </menu>
-        
         <main>
             @RenderBody()
         </main>
-        
-        
-        <footer class="footer container-fluid">
-            <hr />
-            <p>&copy; @DateTime.Now.Year - DevGenius</p>
-        </footer>
+        @*<footer class="footer container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <hr />
+                    <p>&copy; @DateTime.Now.Year - DevGenius</p>
+                </div>
+            </div>
+        </footer>*@
     </div>
     <script src="~/Scripts/jquery-3.0.0.slim.js?v=@DateTime.Now.Ticks"    ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

@@ -1,11 +1,28 @@
 ﻿
+@using DevGeniusFinance.Models;
+@using Humanizer;
+
 @{
     ViewBag.Title = "Home";
 }
 
-<p>@ViewBag.Id</p>
+<link href="~/Content/home/home.css?v=@DateTime.Now.Ticks" rel="stylesheet" />
 
-@foreach (var item in ViewBag.users)
-{
-    <p>@item</p>
-}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card-columns balance-cards-container">
+                @foreach (Balance item in ViewBag.users)
+                {
+                    <div class="card border-dark" style="min-width: 15rem;">
+                        <div class="card-header">@item.Description</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Saldo: @String.Format("{0:C}", item.Value)</h5>
+                            <p class="card-text"><small class="text-muted">Atualizado em @TimeSpanHumanizeExtensions.Humanize((TimeSpan)(DateTime.Now - item.UpdatedAt))</small></p>
+                        </div>
+                    </div>    
+                }
+            </div>
+        </div>
+    </div>
+</div>

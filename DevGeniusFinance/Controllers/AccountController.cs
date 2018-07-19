@@ -107,7 +107,7 @@ namespace DevGeniusFinance.Controllers
                 if (user.PassWord == login.Password)
                 {
                     FormsAuthentication.SetAuthCookie(login.CPF, false);
-                    Session["nome"] = user.Name;
+                    Response.Cookies["name"].Value  = user.Name;
                     return RedirectToAction("Index", "Home");
                 }
                 else
