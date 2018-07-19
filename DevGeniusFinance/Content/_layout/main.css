@@ -4,3 +4,10 @@
     width: 100%;
     overflow: visible;
 }
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    
+}
