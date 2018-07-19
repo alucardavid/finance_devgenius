@@ -91,11 +91,13 @@ namespace DevGeniusFinance.Controllers
         [HttpPost]
         public ActionResult Login(Login login)
         {
-            var user = (from userTmp in db.User where userTmp.CPF == login.CPF select userTmp).FirstOrDefault();
-
-
+            // Verifica se model esta valido
             if (ModelState.IsValid)
             {
+                // Retorna password da base de dados
+                var user = (from userTmp in db.User where userTmp.CPF == login.CPF select userTmp).FirstOrDefault();
+
+                // Verifica se password corresponde ao da base de dados
                 if (user.PassWord == login.Password)
                 {
                     FormsAuthentication.SetAuthCookie(login.CPF, false);
@@ -104,11 +106,13 @@ namespace DevGeniusFinance.Controllers
                 }
                 else
                 {
+                    // Retorna view login
                     return View();
                 }
             }
             else
             {
+                // Retorna view login
                 return View();
             }
         }

@@ -19,7 +19,7 @@
     <main>
         <div class="container">
             <div class="row justify-content-md-center">
-                <div class="col-sm-6 col-12 container-login">
+                <div class="col-sm-6 col-lg-4 container-login">
                     <div class="row">
                         <div class="col-sm-12 text-center">
                             <img class="logo responsive-img" src="~/imgs/logo-210x216.png" />
@@ -37,7 +37,7 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         @*@Html.Label("cpf", "CPF", new { @class = "lbl-cpf" })*@
-                                        @Html.TextBox("cpf", null, new { @class = "form-control", type = "text", id = "cpf", placeholder = "CPF", spellcheck="false" })
+                                        @Html.TextBox("cpf", null, new { @class = "form-control", type = "text", id = "cpf", placeholder = "CPF", spellcheck="false", pattern = "[0-9]+$", required = "true" })
                                     </div>
                                 </div>
                             </div>
@@ -46,7 +46,7 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         @*@Html.Label("password", "Password")*@
-                                        @Html.TextBox("password", null, new { @class = "form-control", type = "password", placeholder = "Password" })
+                                        @Html.TextBox("password", null, new { @class = "form-control", type = "password", placeholder = "Password", required = "true" })
                                     </div>
                                 </div>
                             </div>
