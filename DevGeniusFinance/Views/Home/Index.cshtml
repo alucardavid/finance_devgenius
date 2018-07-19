@@ -1,6 +1,7 @@
 ﻿
 @using DevGeniusFinance.Models;
 @using Humanizer;
+@using System.Globalization;
 
 @{
     ViewBag.Title = "Home";
@@ -17,8 +18,8 @@
                     <div class="card border-dark" style="min-width: 15rem;">
                         <div class="card-header">@item.Description</div>
                         <div class="card-body">
-                            <h5 class="card-title">Saldo: @String.Format("{0:C}", item.Value)</h5>
-                            <p class="card-text"><small class="text-muted">Atualizado em @TimeSpanHumanizeExtensions.Humanize((TimeSpan)(DateTime.Now - item.UpdatedAt))</small></p>
+                            <h5 class="card-title">@String.Format(CultureInfo.GetCultureInfo("pt-BR"), "Saldo: {0:C}", item.Value)</h5>
+                            <p class="card-text"><small class="text-muted">Atualizado em @TimeSpanHumanizeExtensions.Humanize((TimeSpan)(DateTime.Now - item.UpdatedAt), 1, CultureInfo.GetCultureInfo("pt-BR"))</small></p>
                         </div>
                     </div>    
                 }
