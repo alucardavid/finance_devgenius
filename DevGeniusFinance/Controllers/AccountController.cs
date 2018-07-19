@@ -97,6 +97,12 @@ namespace DevGeniusFinance.Controllers
                 // Retorna password da base de dados
                 var user = (from userTmp in db.User where userTmp.CPF == login.CPF select userTmp).FirstOrDefault();
 
+                if (user == null)
+                {
+                    ModelState.AddModelError(String.Empty, "Usuario não cadastrado.");
+                    return View();
+                }
+
                 // Verifica se password corresponde ao da base de dados
                 if (user.PassWord == login.Password)
                 {
