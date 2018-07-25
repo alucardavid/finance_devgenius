@@ -1,8 +1,8 @@
 ﻿
 $(document).ready(function () {
 
-    function Logout() {
-        window.location('')
-    }
-
+    $("#sidebarCollapse").click(function () {
+        $("#sidebar").toggleClass('active');
+    });
+    
 });
