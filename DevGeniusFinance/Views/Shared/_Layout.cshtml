@@ -12,33 +12,31 @@
     <link href="~/Content/open-iconic/open-iconic-bootstrap.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="wrapper">
-        <nav id="sidebar">
-            <ul>
-                <li>Teste</li>
-            </ul>
-        </nav>
-        <div id="content">
-            @Html.Partial("_MenuSuperior")
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        @RenderBody()
+    <div class="main-container">
+        <ul id="sidebar" class="nav flex-column bg-dark">
+            <li class="nav-item">
+                <a class="nav-link text-center text-white" href="#">Home</a>
+            </li>
+        </ul>
+        <div role="main" id="main-content">
+            <header>
+                @Html.Partial("_MenuSuperior")
+            </header>
+            <section>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            @RenderBody()
+                        </div>
                     </div>
                 </div>
-            </div>
+            </section>
+            <footer class="container-fluid">
+                <hr class="m-0" />
+                <span class="text-muted pl-3">&copy; @DateTime.Now.Year - DevGenius</span>
+            </footer>
         </div>
     </div>
-
-
-    @*<footer class="footer container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <hr />
-                    <p>&copy; @DateTime.Now.Year - DevGenius</p>
-                </div>
-            </div>
-        </footer>*@
 
     <script src="~/Scripts/jquery/jquery-3.0.0.js" type="text/javascript"></script>
     <script src="~/Scripts/bootstrap/bootstrap.js" type="text/javascript"></script>

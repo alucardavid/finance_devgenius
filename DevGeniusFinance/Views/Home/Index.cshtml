@@ -11,7 +11,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-12 col-12">
             <div class="card-columns balance-cards-container">  
                 @foreach (Balance item in ViewBag.users)
                 {
@@ -19,7 +19,7 @@
                         <div class="card-header">@item.Description</div>
                         <div class="card-body">
                             <h5 class="card-title">@String.Format("Saldo: {0:C}", item.Value)</h5>
-                            <p class="card-text"><small class="text-muted">Atualizado em @TimeSpanHumanizeExtensions.Humanize((TimeSpan)(DateTime.Now - item.UpdatedAt))</small></p>
+                            <p class="card-text"><small class="text-muted">Última atualização - @TimeSpanHumanizeExtensions.Humanize((TimeSpan)(DateTime.Now - item.UpdatedAt))</small></p>
                         </div>
                     </div>    
                 }
