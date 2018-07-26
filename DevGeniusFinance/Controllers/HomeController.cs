@@ -19,9 +19,15 @@ namespace DevGeniusFinance.Controllers
         {
             // Get current user logged
             var user = dbContext.User.Find(User.Identity.Name);
+            var monthPendingMonthlyExpense = user.MonthlyExpense.Where(m => m.Status == "Pendente").Min(m => m.DueDate.ToString("yyyyMM"));
 
             // Get all balances
-            ViewBag.users = user.Balance.ToList();
+            ViewBag.users = user.Balance.OrderBy(b => b.Description).ToList();
+
+            // Get Sum of monthly expenses pending
+            ViewBag.monthlyExpenseTotal = user.MonthlyExpense
+                .Where(m => m.Status == "Pendente" && m.DueDate.ToString("yyyyMM") == monthPendingMonthlyExpense)
+                .Sum(m => m.Value);
 
             return View();
         }

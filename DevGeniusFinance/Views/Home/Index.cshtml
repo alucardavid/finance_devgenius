@@ -9,21 +9,28 @@
 
 <link href="~/Content/home/home.css?v=@DateTime.Now.Ticks" rel="stylesheet" />
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-12 col-12">
-            <div class="card-columns balance-cards-container">  
-                @foreach (Balance item in ViewBag.users)
+<div class="card-columns balance-cards-container">  
+    @foreach (Balance item in ViewBag.users)
+    {
+        <div class="card border-dark" style="min-width: 15rem;">
+            <div class="card-header">@item.Description</div>
+            <div class="card-body">
+                <h5 class="card-title">@String.Format("Saldo: {0:C}", item.Value)</h5>
+                @if(item.Description == "Conta Corrente Santander")
                 {
-                    <div class="card border-dark" style="min-width: 15rem;">
-                        <div class="card-header">@item.Description</div>
-                        <div class="card-body">
-                            <h5 class="card-title">@String.Format("Saldo: {0:C}", item.Value)</h5>
-                            <p class="card-text"><small class="text-muted">Última atualização - @TimeSpanHumanizeExtensions.Humanize((TimeSpan)(DateTime.Now - item.UpdatedAt))</small></p>
-                        </div>
-                    </div>    
+                    <p class="card-text">@String.Format("Despesas pendentes: {0:c}", ViewBag.monthlyExpenseTotal)</p>
+                    <p class="card-text">@String.Format("Saldo - Despesas: {0:c}", ((double)item.Value - (double)ViewBag.monthlyExpenseTotal))</p>
+                }
+                else
+                {
+                    <p class="card-text"></p>
+                    <p class="card-text"></p>
                 }
             </div>
-        </div>
-    </div>
+            <div class="card-footer">
+                <small class="text-muted">Última atualização a @TimeSpanHumanizeExtensions.Humanize((TimeSpan)(DateTime.Now - item.UpdatedAt))</small>
+            </div>
+        </div>    
+    }
 </div>
+
