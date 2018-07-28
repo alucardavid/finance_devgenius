@@ -6,12 +6,14 @@ using System.Web;
 
 namespace DevGeniusFinance.Models
 {
-    public partial class Login
+    public partial class LoginModel
     {
-        [Required(ErrorMessage = "CPF is Required")]
+        [Required]
+        [MinLength(10)]
         public string CPF { get; set; }
 
-        [Required(ErrorMessage = "Password is Required")]
+        [MinLength(3)]
+        [Required]
         public string Password { get; set; }
 
     }

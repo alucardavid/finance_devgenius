@@ -1,4 +1,4 @@
-namespace DevGeniusFinance.Models
+namespace DevGeniusFinance.Entidades
 {
     using System;
     using System.Collections.Generic;

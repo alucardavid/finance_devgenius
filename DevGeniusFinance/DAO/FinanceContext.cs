@@ -1,13 +1,12 @@
-namespace DevGeniusFinance.Models
+namespace DevGeniusFinance.DAO
 {
-    using System;
+    using DevGeniusFinance.Entidades;
     using System.Data.Entity;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Linq;
+    
 
-    public partial class Finance : DbContext
+    public partial class FinanceContext : DbContext
     {
-        public Finance()
+        public FinanceContext()
             : base("name=Finance")
         {
         }
@@ -19,9 +18,13 @@ namespace DevGeniusFinance.Models
         public virtual DbSet<MonthlyExpense> MonthlyExpense { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<VariableExpense> VariableExpense { get; set; }
+        public virtual DbSet<Account> Accounts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            //modelBuilder.Properties<string>()
+            //    .Configure(s => s.HasColumnType("varchar"));
+
             modelBuilder.Entity<Balance>()
                 .HasMany(e => e.FormOfPayment)
                 .WithOptional(e => e.Balance)

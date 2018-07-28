@@ -6,7 +6,7 @@ using System.Web.Security;
 
 namespace DevGeniusFinance.Models
 {
-    public class Roles : RoleProvider
+    public class RolesModel : RoleProvider
     {
         public override string ApplicationName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 

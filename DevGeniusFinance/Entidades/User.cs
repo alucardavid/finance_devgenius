@@ -1,4 +1,4 @@
-namespace DevGeniusFinance.Models
+namespace DevGeniusFinance.Entidades
 {
     using System;
     using System.Collections.Generic;
@@ -6,27 +6,29 @@ namespace DevGeniusFinance.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("devgeniusadm.FormOfPayment")]
-    public partial class FormOfPayment
+    [Table("devgeniusadm.User")]
+    public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public FormOfPayment()
+        public User()
         {
+            Balance = new HashSet<Balance>();
             MonthlyExpense = new HashSet<MonthlyExpense>();
             VariableExpense = new HashSet<VariableExpense>();
         }
 
-        public int Id { get; set; }
+        [Key]
+        [Column(TypeName = "VARCHAR")]
+        public string CPF { get; set; }
 
-        public string Description { get; set; }
+        public string Name { get; set; }
 
-        public DateTime CreatedAt { get; set; }
+        public string PassWord { get; set; }
 
-        public DateTime? UpdatedAt { get; set; }
+        public DateTime DtCreated { get; set; }
 
-        public int? Balance_Id { get; set; }
-
-        public virtual Balance Balance { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Balance> Balance { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MonthlyExpense> MonthlyExpense { get; set; }

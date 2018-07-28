@@ -1,13 +1,14 @@
-﻿using System;
+﻿using DevGeniusFinance.DAO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace DevGeniusFinance.Models
+namespace DevGeniusFinance.Entidades
 {
     public partial class User
     {
-        private readonly Finance dbContext = new Finance();
+        private readonly FinanceContext dbContext = new FinanceContext();
 
         public override string ToString() => $"{Name}";
 

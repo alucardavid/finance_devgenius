@@ -65,6 +65,18 @@
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.3.1.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.3.3.1\lib\net45\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common.WebHost, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.WebHost.3.3.0\lib\net45\Ninject.Web.Common.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.MVC5.3.3.0\lib\net45\Ninject.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -86,8 +98,17 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.3.2.6\lib\net45\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.3.2.6\lib\net45\WebMatrix.WebData.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -199,6 +220,11 @@
     <Content Include="Scripts\bootstrap\bootstrap.bundle.min.js.map" />
     <Content Include="Scripts\bootstrap\bootstrap.bundle.js.map" />
     <None Include="Scripts\jquery\jquery-3.0.0-vsdoc.js" />
+    <None Include="Scripts\lib\jquery-validate\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\lib\jquery-validate\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\lib\jquery-validate\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\lib\jquery-validate\jquery.validate.js" />
+    <Content Include="Scripts\lib\jquery-validate\jquery.validate.min.js" />
     <Content Include="Scripts\jquery\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery\jquery-3.0.0.min.js" />
     <Content Include="Scripts\jquery\jquery-3.0.0.slim.js" />
@@ -221,25 +247,44 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\Ninject.Web.Common.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Entidades\Account.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Balance.cs" />
-    <Compile Include="Models\C__MigrationHistory.cs" />
-    <Compile Include="Models\ExpenseCategory.cs" />
-    <Compile Include="Models\Finance.cs" />
-    <Compile Include="Models\FormOfPayment.cs" />
-    <Compile Include="Models\Login.cs" />
-    <Compile Include="Models\MonthlyExpense.cs" />
+    <Compile Include="Entidades\Balance.cs" />
+    <Compile Include="Entidades\C__MigrationHistory.cs" />
+    <Compile Include="Entidades\ExpenseCategory.cs" />
+    <Compile Include="DAO\FinanceContext.cs" />
+    <Compile Include="Entidades\FormOfPayment.cs" />
+    <Compile Include="Migrations\201807282018066_InitialCreate.cs" />
+    <Compile Include="Migrations\201807282018066_InitialCreate.Designer.cs">
+      <DependentUpon>201807282018066_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807282022403_User_v1.2.cs" />
+    <Compile Include="Migrations\201807282022403_User_v1.2.Designer.cs">
+      <DependentUpon>201807282022403_User_v1.2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807282053338_Account.cs" />
+    <Compile Include="Migrations\201807282053338_Account.Designer.cs">
+      <DependentUpon>201807282053338_Account.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807282100231_Account_v1.1.cs" />
+    <Compile Include="Migrations\201807282100231_Account_v1.1.Designer.cs">
+      <DependentUpon>201807282100231_Account_v1.1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Entidades\MonthlyExpense.cs" />
     <Compile Include="Models\partials\BalanceMethods.cs" />
     <Compile Include="Models\partials\MonthlyExpenseMethods.cs" />
     <Compile Include="Models\partials\UserMethods.cs" />
-    <Compile Include="Models\Roles.cs" />
-    <Compile Include="Models\User.cs" />
-    <Compile Include="Models\VariableExpense.cs" />
+    <Compile Include="Models\RolesModel.cs" />
+    <Compile Include="Entidades\User.cs" />
+    <Compile Include="Entidades\VariableExpense.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -253,6 +298,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
     <Content Include="Scripts\umd\popper-utils.js.map" />
     <Content Include="Views\Shared\_MenuSuperior.cshtml" />
+    <Content Include="Views\Shared\_MenuEsquerdo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -268,6 +314,20 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201807282018066_InitialCreate.resx">
+      <DependentUpon>201807282018066_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807282022403_User_v1.2.resx">
+      <DependentUpon>201807282022403_User_v1.2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807282053338_Account.resx">
+      <DependentUpon>201807282053338_Account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807282100231_Account_v1.1.resx">
+      <DependentUpon>201807282100231_Account_v1.1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

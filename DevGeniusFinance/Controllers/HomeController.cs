@@ -1,4 +1,5 @@
-﻿using DevGeniusFinance.Models;
+﻿using DevGeniusFinance.DAO;
+using DevGeniusFinance.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace DevGeniusFinance.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-        private readonly Finance dbContext = new Finance(); 
+        private readonly FinanceContext dbContext = new FinanceContext(); 
 
         // GET: Home
         [HttpGet]
